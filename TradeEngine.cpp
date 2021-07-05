@@ -154,9 +154,11 @@ class TradeEngine{
                 // format before trade instantiation
                 Utility::splitString(line,tempVector);
 
-                //cout<<tempVector[0]<<" "<<tempVector[1]<<" "<<tempVector[2]<<" "<<tempVector[3]<<endl;
-                Trade t(tempVector[1],stol(tempVector[0]),stoi(tempVector[2]),stoi(tempVector[3]));
-                processTrade(t);
+                if(tempVector.size()==4)
+		{
+                  Trade t(tempVector[1],stol(tempVector[0]),stoi(tempVector[2]),stoi(tempVector[3]));
+                  processTrade(t);
+		}
             }
         }
         inputFile.close();
